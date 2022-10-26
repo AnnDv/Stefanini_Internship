@@ -35,4 +35,5 @@ while (d < 3) {
   d++;
 }
 
+// Task 9.6 - output prime numbers
 
