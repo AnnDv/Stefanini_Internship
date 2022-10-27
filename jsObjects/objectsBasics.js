@@ -32,11 +32,10 @@ let salaries = {
 
 // function to check if the object is empty or not
 function checkSalary(salary) {
+    let sum = 0;
     for(j in salaries) {
-        let sum = salaries.John + salaries.Ann + salaries.Pete;
-        return sum;
+        sum += salaries[j];
     }
-    return 0;
 }
 
 console.log(checkSalary(salaries));
@@ -45,7 +44,7 @@ console.log(checkSalary(salaries));
 function multiplyNumeric(obj) {
     for(i in obj) {
         if(typeof obj[i] == 'number') {
-            return obj[i] *= 2
+            obj[i] *= 2
         }
     }
 }
