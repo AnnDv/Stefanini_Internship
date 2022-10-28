@@ -1,4 +1,6 @@
-// Task 1 - create new calculator
+/**
+Creates new Calculator
+**/
 function Calculator(){
     this.read = function read() {
         this.a = +prompt("a", 0);
@@ -12,7 +14,7 @@ function Calculator(){
     }
 };
 
-let calculator = new Calculator();
+const calculator = new Calculator();
 calculator.read();
   
 alert( "Sum = " + calculator.sum() );
