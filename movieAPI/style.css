@@ -57,6 +57,7 @@ body{
     color: #563535;
     opacity: 0;
     transition: all 0.5s ease;
+    letter-spacing: 0.5px;
 }
 
 .release-date, .vote-average{
