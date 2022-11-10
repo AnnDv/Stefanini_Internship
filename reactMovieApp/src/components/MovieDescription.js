@@ -1,6 +1,8 @@
+import './MovieDescription.css'
+
 function MovieDescription(props) {
     return (
-        <div>
+        <div className='text'>
             <p>{props.item.overview}</p>
         </div>
     )
