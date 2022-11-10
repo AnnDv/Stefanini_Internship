@@ -1,15 +1,21 @@
 import React from 'react';
-import { config } from '../config';
+import MovieImage from './MovieImage';
+import MovieTitle from './MovieTitle';
+import "./MovieCard.css";
+import ShowInfoButton from './ShowInfoButton';
 
-const IMG_URL = config.img_url;
+function MovieCard (props){
 
-const MovieCard = ({title, poster_path, overview, release_date, vote_average}) =>{
     return (
-		<div>
-			<h1>{title}</h1>
-            <img src={IMG_URL + poster_path} alt="movie"/>
-            <p>{overview}</p>
-            <p>{release_date} {vote_average}</p>
+		<div className='grid'>
+			{props.item.map(movie => (
+                <div key={movie.id} className="card_description">
+					<MovieImage item={movie}/>
+					<MovieTitle item={movie}/>
+					<ShowInfoButton item={movie}/>
+				</div>
+			))}
+			
 		</div>
 	);
 }
