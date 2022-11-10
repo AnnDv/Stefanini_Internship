@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import MovieDescription from "./MovieDescription";
-import './ShowInfoButton.css'
+import './ShowInfoButton.css';
+import MovieRaiting from "./MovieRaiting";
 
 function ShowInfoButton(props) {
     const [show, setShow]= useState(false);
@@ -18,6 +19,7 @@ function ShowInfoButton(props) {
                 </Modal.Header>
                 <Modal.Body>
                     <MovieDescription item={props.item}/>
+                    <MovieRaiting item={props.item} />
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>Close</Button>
