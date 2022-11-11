@@ -1,11 +1,19 @@
-import './MovieDescription.css'
+import './MovieDescription.css'; 
+import React from 'react';
+import PropTypes from 'prop-types';
 
-function MovieDescription(props) {
+const MovieDescription = (movie) => {
+    const info = movie.item;
+    
     return (
-        <div className='text'>
-            <p>{props.item.overview}</p>
-        </div>
+    <div className='text'>
+        <p>{info.overview}</p>
+    </div>
     )
 }
+
+MovieDescription.propTypes = {
+    overview: PropTypes.string
+};
 
 export default MovieDescription;

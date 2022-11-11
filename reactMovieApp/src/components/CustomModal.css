@@ -1,0 +1,35 @@
+.modal_style{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, .7);
+    z-index: 1000;
+    color: rgb(0, 0, 0);
+    padding: 50px 200px;
+    text-align: justify;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+}
+
+.close_button {
+    margin: 0;
+    background-color: #8c7d94;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 19px;
+    color: #ffffff;
+    font-size: 17px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.text_box{
+    width: 40%;
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 10px;
+}

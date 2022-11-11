@@ -1,14 +1,21 @@
-import { config } from "../config";
-import "./MovieImage.css"
+import { CONFIG } from "../config";
+import "./MovieImage.css";
+import React from "react";
+import PropTypes from 'prop-types';
 
-const IMG_URL = config.img_url;
+const IMG_URL = CONFIG.IMG_URL;
 
-function MovieImage(props) {
-    return (
-        <div >
-            <img className="movie_img" src={IMG_URL + props.item.poster_path} alt='movie'></img>
-        </div>
+function MovieImage(movie) {
+
+  return (
+    <div >
+      <img className="movie_img" src={IMG_URL + movie.item.poster_path} alt='movie'></img>
+    </div>
     )
+}
+
+MovieImage.propTypes = {
+  poster_path: PropTypes.object
 }
 
 export default MovieImage;

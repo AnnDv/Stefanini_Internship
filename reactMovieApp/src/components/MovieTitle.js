@@ -1,12 +1,17 @@
-import './MovieTitle.css'
+import PropTypes from 'prop-types';
+import './MovieTitle.css';
+import React from 'react';
 
-function MovieTitle(props) {
-    
+function MovieTitle( movie ) {
     return (
         <div className="title">
-            <p >{props.item.title}</p>
+            <p>{movie.item.title}</p>
         </div>
     )
+}
+
+MovieTitle.propTypes = {
+    title: PropTypes.string
 }
 
 export default MovieTitle;

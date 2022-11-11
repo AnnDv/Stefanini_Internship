@@ -1,11 +1,11 @@
 import './index.css';
-import { config } from './config';
+import { CONFIG } from './config';
 import MovieCard from './components/MovieCard';
 import React from 'react';
 import { useState, useEffect } from 'react';
 import "./App.css"
 
-const API_URL = config.base_url + config.popular_movie_url + config.api_key;
+const API_URL = CONFIG.BASE_URL + CONFIG.POPULAR_MOVIE_URL + CONFIG.API_KEY;
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -21,7 +21,7 @@ function App() {
 
   return (
     <div className='container'>
-      <MovieCard item={movies}/>    
+      <MovieCard movies={movies}/>    
     </div>
     
   );
