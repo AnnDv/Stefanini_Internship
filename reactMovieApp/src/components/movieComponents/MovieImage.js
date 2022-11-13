@@ -1,4 +1,4 @@
-import { CONFIG } from "../config";
+import { CONFIG } from "../../config";
 import "./MovieImage.css";
 import React from "react";
 import PropTypes from 'prop-types';

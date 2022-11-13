@@ -1,9 +1,9 @@
 /* eslint-disable no-mixed-spaces-and-tabs */
 import React from 'react';
-import MovieImage from './MovieImage';
-import MovieTitle from './MovieTitle';
-import "./MovieCard.css";
-import ShowInfoButton from './ShowInfoButton';
+import MovieImage from './movieComponents/MovieImage';
+import MovieTitle from './movieComponents/MovieTitle';
+import "./MovieList.css";
+import ShowInfoButton from './movieComponents/ShowInfoButton';
 import PropTypes from 'prop-types';
 
 function MovieList({movies}){
