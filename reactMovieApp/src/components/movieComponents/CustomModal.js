@@ -5,8 +5,6 @@ import PropTypes from 'prop-types';
 
 export default function CustomModal({open, children, onClose}) {
   if(!open) return null;
-
-  console.log(typeof(onClose))
   
   return ReactDOM.createPortal(
     <>

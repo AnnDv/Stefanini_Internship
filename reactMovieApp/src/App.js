@@ -4,9 +4,7 @@ import FetchMovies from './api/FetchMovies';
 
 function App() {
   return (
-    <>
-      <FetchMovies />
-    </>
+    <FetchMovies/>
   );
 }
 
