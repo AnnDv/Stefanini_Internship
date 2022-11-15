@@ -2,10 +2,10 @@ import PropTypes from 'prop-types';
 import './MovieTitle.css';
 import React from 'react';
 
-function MovieTitle( movie ) {
+const MovieTitle = ( {title} ) => {
     return (
         <div className="title">
-            <p>{movie.item.title}</p>
+            <p>{title}</p>
         </div>
     )
 }

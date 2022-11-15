@@ -2,12 +2,10 @@ import './MovieDescription.css';
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const MovieDescription = (movie) => {
-    const info = movie.item;
-    
+const MovieDescription = ({overview}) => {
     return (
     <div className='text'>
-        <p>{info.overview}</p>
+        <p>{overview}</p>
     </div>
     )
 }

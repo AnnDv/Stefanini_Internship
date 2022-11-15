@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import MovieDescription from "./MovieDescription";
+import MovieDescription from "../components/movieComponents/MovieDescription";
 import CustomModal from "./CustomModal";
 import './ShowInfoButton.css';
 import PropTypes from 'prop-types';
 
-
-function ShowInfoButton({item}) {
+function ShowInfoButton({overview}) {
   const [isOpen, setIsOpen] = useState(false);
 
   const isOpenHandler = () => setIsOpen(true);
@@ -16,7 +15,7 @@ function ShowInfoButton({item}) {
       <div className="card-body">
         <button className="button" onClick={isOpenHandler}>View More</button>
         <CustomModal open={isOpen} onClose={isCloseHandler}>
-            <MovieDescription item={item}/>
+            <MovieDescription overview={overview}/>
         </CustomModal>
       </div>
     </>
@@ -24,7 +23,7 @@ function ShowInfoButton({item}) {
 }
 
 ShowInfoButton.propTypes = {
-    item: PropTypes.object
+  overview: PropTypes.string,
 }
 
 export default ShowInfoButton;
