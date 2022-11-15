@@ -1,4 +1,4 @@
-import { getData } from "./getData";
+import { getData } from "../api/getData";
 import { CONFIG } from "../config";
 import MovieCard from "../components/MovieCard";
 import  React, { useEffect, useState } from "react";

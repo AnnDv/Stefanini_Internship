@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 const IMG_URL = CONFIG.IMG_URL;
 
-function MovieImage({image}) {
+const MovieImage = ({image}) => {
   return (
     <div >
       <img className="movie_img" src={IMG_URL + image} alt='movie'></img>

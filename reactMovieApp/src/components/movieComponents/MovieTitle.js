@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import './MovieTitle.css';
 import React from 'react';
 
-function MovieTitle( {title} ) {
+const MovieTitle = ( {title} ) => {
     return (
         <div className="title">
             <p>{title}</p>

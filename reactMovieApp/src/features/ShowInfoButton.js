@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import MovieDescription from "./MovieDescription";
+import MovieDescription from "../components/movieComponents/MovieDescription";
 import CustomModal from "./CustomModal";
 import './ShowInfoButton.css';
 import PropTypes from 'prop-types';

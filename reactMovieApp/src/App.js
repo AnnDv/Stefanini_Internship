@@ -1,11 +1,7 @@
 import './index.css';
 import React from 'react';
-import FetchMovies from './api/FetchMovies';
+import FetchMovies from './features/FetchMovies';
 
-function App() {
-  return (
-    <FetchMovies/>
-  );
-}
+function App() { return ( <FetchMovies/> ); }
 
 export default App;

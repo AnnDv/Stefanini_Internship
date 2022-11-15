@@ -1,14 +1,8 @@
 export async function getData(url) {
-    let data = [];
-    
-    try{
-        let response = await fetch(url)
-        .then(response => response.json())
-        .then(data => { 
-            return data.results;
-        });
-        data = response;
-    } catch(err) { alert(err) }
-    
-    return data;
+  try {
+    const data = await fetch(url);
+    const movies = await data.json();
+    return movies.results;
+  } 
+  catch(err) {console.log(err)}
 }
