@@ -16,6 +16,7 @@ const FetchMovies = () => {
 
   return (
     <div className='container'>
+      <h3>Popular Movies: </h3>
       <MovieCard movies={movies}/>
     </div>
   );
