@@ -1,20 +1,18 @@
-import { CONFIG } from "../../config";
-import "./MovieImage.css";
-import React from "react";
+import React from 'react';
 import PropTypes from 'prop-types';
+import CONFIG from '../../config';
+import './MovieImage.css';
 
-const IMG_URL = CONFIG.IMG_URL;
+const { IMG_URL } = CONFIG;
 
-const MovieImage = ({image}) => {
-  return (
+const MovieImage = ({ image }) => (
     <div >
       <img className="movie_img" src={IMG_URL + image} alt='movie'></img>
     </div>
-    )
-}
+);
 
 MovieImage.propTypes = {
-  image: PropTypes.string.isRequired
-}
+  image: PropTypes.string,
+};
 
 export default MovieImage;

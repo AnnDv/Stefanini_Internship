@@ -3,9 +3,9 @@ import './CustomModal.css';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
-export default function CustomModal({open, children, onClose}) {
-  if(!open) return null;
-  
+export default function CustomModal({ open, children, onClose }) {
+  if (!open) return null;
+
   return ReactDOM.createPortal(
     <>
         <div className='modal_style'>
@@ -15,12 +15,12 @@ export default function CustomModal({open, children, onClose}) {
           </div>
         </div>
     </>,
-    document.getElementById("portal")
-  )
+    document.getElementById('portal'),
+  );
 }
 
 CustomModal.propTypes = {
   open: PropTypes.bool,
   children: PropTypes.object,
-  onClose: PropTypes.func
-}
+  onClose: PropTypes.func,
+};

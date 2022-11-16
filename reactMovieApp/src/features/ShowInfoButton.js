@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import MovieDescription from "../components/movieComponents/MovieDescription";
-import CustomModal from "./CustomModal";
-import './ShowInfoButton.css';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import MovieDescription from '../components/movieComponents/MovieDescription';
+import CustomModal from './CustomModal';
+import './ShowInfoButton.css';
 
-function ShowInfoButton({overview}) {
+function ShowInfoButton({ overview }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const isOpenHandler = () => setIsOpen(true);
@@ -19,11 +19,11 @@ function ShowInfoButton({overview}) {
         </CustomModal>
       </div>
     </>
-    )
+  );
 }
 
 ShowInfoButton.propTypes = {
   overview: PropTypes.string,
-}
+};
 
 export default ShowInfoButton;
