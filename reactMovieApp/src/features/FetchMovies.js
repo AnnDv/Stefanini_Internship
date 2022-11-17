@@ -15,7 +15,7 @@ const FetchMovies = () => {
   }, []);
 
   return (
-    <div className='container'>
+    <div data-testid="fetch" className='container'>
       <h3>Popular Movies: </h3>
       <MovieCard movies={movies}/>
     </div>
