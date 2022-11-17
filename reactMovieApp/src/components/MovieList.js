@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import MovieImage from './movieComponents/MovieImage';
 import MovieTitle from './movieComponents/MovieTitle';
 import './MovieList.css';
-import ShowInfoButton from '../features/ShowInfoButton';
+import ShowInfoButton from '../features/infoButton/ShowInfoButton';
 
 function MovieList({ movies }) {
   return (
