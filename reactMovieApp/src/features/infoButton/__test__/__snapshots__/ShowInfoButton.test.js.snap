@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button component should render a button and have a name 1`] = `
+<body>
+  <div>
+    <div
+      class="card-body"
+    >
+      <button
+        class="button"
+      >
+        View More
+      </button>
+    </div>
+  </div>
+</body>
+`;

@@ -1,9 +1,13 @@
+/* eslint-disable max-len */
 import {
   cleanup, render,
 } from '@testing-library/react';
+import '@testing-library/jest-dom';
+
 import React from 'react';
 import ShowInfoButton from '../ShowInfoButton';
-import '@testing-library/jest-dom';
+
+jest.mock('../../../api/getData');
 
 describe('Button component', () => {
   afterEach(() => {
@@ -11,10 +15,11 @@ describe('Button component', () => {
   });
 
   it('should render a button and have a name', () => {
-    const onClick = jest.fn();
-    const { getByRole } = render(<ShowInfoButton onClick={onClick} btnTxt="View More"/>);
+    const mockOnClick = jest.fn();
+    const { getByRole, baseElement } = render(<ShowInfoButton onClick={mockOnClick} btnTxt="View More"/>);
     const button = getByRole('button');
     expect(button).toBeInTheDocument();
     expect(button).toHaveTextContent('View More');
+    expect(baseElement).toMatchSnapshot();
   });
 });

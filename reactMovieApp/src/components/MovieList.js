@@ -7,9 +7,9 @@ import ShowInfoButton from '../features/infoButton/ShowInfoButton';
 
 function MovieList({ movies }) {
   return (
-    <div className='grid'>
+    <div data-testid="list" className='grid'>
       {movies?.map((movie) => (
-        <div key={movie.id} className="card_description">
+        <div key={movie.id} data-testid={`m-${movie.id}`} className="card_description">
           <MovieImage image={movie.poster_path}/>
           <MovieTitle title={movie.title}/>
           <ShowInfoButton overview={movie.overview}/>
