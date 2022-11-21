@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import React from 'react';
 import PropTypes from 'prop-types';
 import CONFIG from '../../config';
@@ -7,7 +8,7 @@ const { IMG_URL } = CONFIG;
 
 const MovieImage = ({ image }) => (
     <div >
-      <img className="movie_img" src={IMG_URL + image} alt='movie'></img>
+      <img className="movie_img" src={ IMG_URL + image } alt='movie'></img>
     </div>
 );
 

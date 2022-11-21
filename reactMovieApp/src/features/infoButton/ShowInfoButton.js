@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import MovieDescription from '../components/movieComponents/MovieDescription';
+import MovieDescription from '../../components/movieComponents/MovieDescription';
 import CustomModal from './CustomModal';
 import './ShowInfoButton.css';
 
@@ -15,7 +15,7 @@ function ShowInfoButton({ overview }) {
       <div className="card-body">
         <button className="button" onClick={isOpenHandler}>View More</button>
         <CustomModal open={isOpen} onClose={isCloseHandler}>
-            <MovieDescription overview={overview}/>
+            <MovieDescription data-testid="showInfo" overview={overview}/>
         </CustomModal>
       </div>
     </>
