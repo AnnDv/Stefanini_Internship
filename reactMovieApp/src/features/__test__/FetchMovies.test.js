@@ -13,7 +13,7 @@ describe('FetchMovies', () => {
     }]);
     const { getByTestId, baseElement } = render(<FetchMovies />);
     await waitFor(async () => {
-      const movieColl = getByTestId('fetch').children[1].children[0];
+      const movieColl = getByTestId('fetch').children[0].children[0];
       const movieCollLength = movieColl.childElementCount;
       expect(movieCollLength).toBeGreaterThanOrEqual(1);
     });
@@ -27,7 +27,6 @@ describe('FetchMovies', () => {
     await waitFor(async () => {
       const movieColl = getByTestId('fetch').children[1].children[0];
       const movieCollLength = movieColl.childElementCount;
-      console.log(movieCollLength);
       expect(movieCollLength).toBeGreaterThan(0);
     });
     expect(baseElement).toMatchSnapshot();

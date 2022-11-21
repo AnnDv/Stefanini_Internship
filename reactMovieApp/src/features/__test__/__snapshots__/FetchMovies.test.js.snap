@@ -3,22 +3,26 @@
 exports[`FetchMovies should add movie data 1`] = `
 <body>
   <div>
+    <nav
+      class="navbar"
+    >
+      <h3>
+        Popular Movies:
+      </h3>
+    </nav>
     <div
       class="container"
       data-testid="fetch"
     >
-      <h3>
-        Popular Movies: 
-      </h3>
-      <div>
+      <div
+        class="grid"
+        data-testid="list"
+      >
         <div
-          class="grid"
-          data-testid="list"
+          class="card_description"
+          data-testid="m-undefined"
         >
-          <div
-            class="card_description"
-            data-testid="m-undefined"
-          >
+          <div>
             <div>
               <img
                 alt="movie"
@@ -38,55 +42,6 @@ exports[`FetchMovies should add movie data 1`] = `
             >
               <button
                 class="button"
-              >
-                View More
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</body>
-`;
-
-exports[`FetchMovies should fail if we have an empty array 1`] = `
-<body>
-  <div>
-    <div
-      class="container"
-      data-testid="fetch"
-    >
-      <h3>
-        Popular Movies: 
-      </h3>
-      <div>
-        <div
-          class="grid"
-          data-testid="list"
-        >
-          <div
-            class="card_description"
-            data-testid="m-undefined"
-          >
-            <div>
-              <img
-                alt="movie"
-                class="movie_img"
-                src="https://image.tmdb.org/t/p/w500undefined"
-              />
-            </div>
-            <div
-              class="title"
-            >
-              <p />
-            </div>
-            <div
-              class="card-body"
-            >
-              <button
-                class="button"
-                data-testid="showInfo"
               >
                 View More
               </button>
