@@ -1,15 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import MovieList from './MovieList';
+import MovieImage from './movieComponents/MovieImage';
+import MovieTitle from './movieComponents/MovieTitle';
+import ShowInfoButton from '../features/infoButton/ShowInfoButton';
+// import CONFIG from '../config';
 
-const MovieCard = ({ movies }) => (
+// const { IMG_URL } = CONFIG;
+
+const MovieCard = ({ movie }) => (
   <div>
-    <MovieList movies={movies}/>
+    <MovieImage image={movie.poster_path}/>
+    <MovieTitle title={movie.title}/>
+    <ShowInfoButton overview={movie.overview}/>
   </div>
 );
 
 MovieCard.propTypes = {
-  movies: PropTypes.array,
+  movie: PropTypes.object,
 };
 
 export default MovieCard;

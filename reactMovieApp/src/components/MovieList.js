@@ -1,18 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import MovieImage from './movieComponents/MovieImage';
-import MovieTitle from './movieComponents/MovieTitle';
 import './MovieList.css';
-import ShowInfoButton from '../features/infoButton/ShowInfoButton';
+import MovieCard from './MovieCard';
 
 function MovieList({ movies }) {
   return (
-    <div className='grid'>
+    <div data-testid="list" className='grid'>
       {movies?.map((movie) => (
-        <div key={movie.id} className="card_description">
-          <MovieImage image={movie.poster_path}/>
-          <MovieTitle title={movie.title}/>
-          <ShowInfoButton overview={movie.overview}/>
+        <div key={movie.id} data-testid={`m-${movie.id}`} className="card_description">
+          <MovieCard movie={movie}/>
         </div>
       ))}
     </div>

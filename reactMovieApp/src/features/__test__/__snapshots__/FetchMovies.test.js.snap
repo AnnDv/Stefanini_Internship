@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FetchMovies should add movie data 1`] = `
+<body>
+  <div>
+    <nav
+      class="navbar"
+    >
+      <h3>
+        Popular Movies:
+      </h3>
+    </nav>
+    <div
+      class="container"
+      data-testid="fetch"
+    >
+      <div
+        class="grid"
+        data-testid="list"
+      >
+        <div
+          class="card_description"
+          data-testid="m-undefined"
+        >
+          <div>
+            <div>
+              <img
+                alt="movie"
+                class="movie_img"
+                src="https://image.tmdb.org/t/p/w500undefined"
+              />
+            </div>
+            <div
+              class="title"
+            >
+              <p>
+                Black
+              </p>
+            </div>
+            <div
+              class="card-body"
+            >
+              <button
+                class="button"
+              >
+                View More
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
