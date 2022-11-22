@@ -1,48 +1,44 @@
-/* eslint-disable max-len */
 import React, { useEffect, useState } from 'react';
-import getData from '../api/getData';
+import { useDispatch, useSelector } from 'react-redux';
+// import getData from '../api/getData';
 import CONFIG from '../config';
 import MovieList from './MovieList';
 import SearchBox from './SearchMovie';
+import { fetchMovies, getSearch } from '../store/features/apiSlice';
 
-const API_URL = CONFIG.BASE_URL + CONFIG.POPULAR_MOVIE_URL + CONFIG.API_KEY;
 const SEARCH_URL = CONFIG.BASE_URL + CONFIG.SEARCH_URL + CONFIG.API_KEY + CONFIG.QUERY;
 
 const FetchMovies = () => {
   const [movies, setMovies] = useState([]);
   const [searchValue, setSearchValue] = useState('');
 
-  const fetchingData = () => {
-    getData(SEARCH_URL + searchValue).then((result) => {
-      setMovies(result);
-    });
-  };
+  const { movie } = useSelector((state) => state.movie);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchMovies());
+  }, []);
 
   useEffect(() => {
     if (searchValue) {
-      fetchingData(searchValue);
+      dispatch(getSearch(SEARCH_URL + searchValue));
     } else {
       setMovies(movies);
     }
   }, [searchValue]);
 
-  useEffect(() => {
-    getData(API_URL).then((result) => {
-      setMovies(result);
-    });
-  }, []);
-
   return (
     <>
       <nav className='navbar'>
-        <h3>Popular Movies:</h3>
+        <h3>Movie TMDB</h3>
         <SearchBox
-            searchValue={searchValue}
-            setSearchValue={setSearchValue}
+            search={searchValue}
+            setSearch={setSearchValue}
           />
       </nav>
       <div data-testid="fetch" className='container'>
-        <MovieList movies={movies}/>
+        <MovieList movies={movie}/>
       </div>
     </>
   );

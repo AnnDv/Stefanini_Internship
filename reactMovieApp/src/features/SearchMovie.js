@@ -2,21 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './SearchMovie.css';
 
-const SearchBox = ({ searchValue, setSearchValue }) => (
+const SearchBox = ({ search, setSearch }) => (
         <div className='form'>
             <input
                 className='search_form'
                 type="search"
                 placeholder="Type to search..."
-                value={searchValue}
-                onChange={({ target }) => setSearchValue(target.value)}
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
             />
         </div>
 );
 
 SearchBox.propTypes = {
-  searchValue: PropTypes.string,
-  setSearchValue: PropTypes.func,
+  search: PropTypes.string,
+  setSearch: PropTypes.func,
 };
 
 export default SearchBox;
