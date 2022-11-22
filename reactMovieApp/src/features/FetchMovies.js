@@ -22,7 +22,7 @@ const FetchMovies = () => {
     if (searchValue) {
       fetchingData(searchValue);
     } else {
-      setMovies([]);
+      setMovies(movies);
     }
   }, [searchValue]);
 
