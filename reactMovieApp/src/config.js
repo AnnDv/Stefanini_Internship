@@ -3,6 +3,8 @@ const CONFIG = {
   POPULAR_MOVIE_URL: 'discover/movie?sort_by=popularity.desc&api_key=',
   BASE_URL: 'https://api.themoviedb.org/3/',
   IMG_URL: 'https://image.tmdb.org/t/p/w500',
+  SEARCH_URL: 'search/movie?api_key=',
+  QUERY: '&query=',
 };
 
 export default CONFIG;

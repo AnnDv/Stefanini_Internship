@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import MovieImage from './movieComponents/MovieImage';
 import MovieTitle from './movieComponents/MovieTitle';
-import ShowInfoButton from '../features/infoButton/ShowInfoButton';
+import ShowInfoButton from '../components/infoButton/ShowInfoButton';
 // import CONFIG from '../config';
 
 // const { IMG_URL } = CONFIG;

@@ -8,7 +8,7 @@ const { IMG_URL } = CONFIG;
 
 const MovieImage = ({ image }) => (
     <div >
-      <img className="movie_img" src={ IMG_URL + image } alt='movie'></img>
+      <img className="movie_img" src={ image ? IMG_URL + image : '' } alt='movie'></img>
     </div>
 );
 
