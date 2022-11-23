@@ -1,24 +1,34 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 // import getData from '../api/getData';
 import CONFIG from '../config';
 import MovieList from './MovieList';
 import SearchBox from './SearchMovie';
-import { fetchMovies, getSearch } from '../store/features/apiSlice';
+import { getSearch } from '../store/features/apiSlice';
+import { useGetPopularMoviesQuery } from './sliceApi';
+import getData from '../api/getData';
 
 const SEARCH_URL = CONFIG.BASE_URL + CONFIG.SEARCH_URL + CONFIG.API_KEY + CONFIG.QUERY;
 
 const FetchMovies = () => {
   const [movies, setMovies] = useState([]);
   const [searchValue, setSearchValue] = useState('');
+  // const [query, setQuery] = useState();
+  const { data } = useGetPopularMoviesQuery();
+  // const [getPopularMovies, { data }] = useGetPopularMoviesQuery();
 
-  const { movie } = useSelector((state) => state.movie);
-
-  const dispatch = useDispatch();
+  // console.log('data', data);
 
   useEffect(() => {
-    dispatch(fetchMovies());
+    getData(data).then((result) => {
+      setMovies(result);
+    });
   }, []);
+
+  // const { movie } = useSelector((state) => state.movie);
+  // console.log(getPopularMovies);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (searchValue) {
@@ -38,7 +48,7 @@ const FetchMovies = () => {
           />
       </nav>
       <div data-testid="fetch" className='container'>
-        <MovieList movies={movie}/>
+        <MovieList movies={data}/>
       </div>
     </>
   );
