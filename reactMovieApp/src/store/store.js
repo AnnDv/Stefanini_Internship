@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 // import apiReducer from './features/apiSlice';
 import { setupListeners } from '@reduxjs/toolkit/dist/query';
-import { movieApi } from '../features/sliceApi';
+import { movieApi } from './sliceApi';
 
 const store = configureStore({
   reducer: {

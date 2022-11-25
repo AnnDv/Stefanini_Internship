@@ -3,6 +3,7 @@ import CONFIG from '../config';
 
 const popular = CONFIG.POPULAR_MOVIE_URL + CONFIG.API_KEY;
 const base = CONFIG.BASE_URL;
+const search = CONFIG.SEARCH_URL + CONFIG.API_KEY;
 
 export const movieApi = createApi({
   reducerPath: 'movieApi',
@@ -11,7 +12,13 @@ export const movieApi = createApi({
     getPopularMovies: builder.query({
       query: () => popular,
     }),
+    getSearchMovie: builder.query({
+      query: (query) => ({
+        url: search,
+        params: { query },
+      }),
+    }),
   }),
 });
 
-export const { useGetPopularMoviesQuery } = movieApi;
+export const { useGetPopularMoviesQuery, useLazyGetSearchMovieQuery } = movieApi;

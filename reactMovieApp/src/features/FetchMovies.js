@@ -1,54 +1,34 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-// import getData from '../api/getData';
-import CONFIG from '../config';
-import MovieList from './MovieList';
-import SearchBox from './SearchMovie';
-import { getSearch } from '../store/features/apiSlice';
-import { useGetPopularMoviesQuery } from './sliceApi';
-import getData from '../api/getData';
-
-const SEARCH_URL = CONFIG.BASE_URL + CONFIG.SEARCH_URL + CONFIG.API_KEY + CONFIG.QUERY;
+import MovieList from './movieList/MovieList';
+import SearchBox from './search/SearchMovie';
+import { useGetPopularMoviesQuery, useLazyGetSearchMovieQuery } from '../store/sliceApi';
 
 const FetchMovies = () => {
+  const { data: movie } = useGetPopularMoviesQuery();
   const [movies, setMovies] = useState([]);
-  const [searchValue, setSearchValue] = useState('');
-  // const [query, setQuery] = useState();
-  const { data } = useGetPopularMoviesQuery();
-  // const [getPopularMovies, { data }] = useGetPopularMoviesQuery();
-
-  // console.log('data', data);
+  const [search, setSearch] = useState('');
+  const [execute, { data: list }] = useLazyGetSearchMovieQuery();
 
   useEffect(() => {
-    getData(data).then((result) => {
-      setMovies(result);
-    });
-  }, []);
-
-  // const { movie } = useSelector((state) => state.movie);
-  // console.log(getPopularMovies);
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (searchValue) {
-      dispatch(getSearch(SEARCH_URL + searchValue));
-    } else {
-      setMovies(movies);
+    if (!search.length) {
+      setMovies(movie);
+    } else if (search.length >= 3) {
+      execute(search);
+      setMovies(list);
     }
-  }, [searchValue]);
+  }, [execute, search, list, setMovies, movie]);
 
   return (
     <>
       <nav className='navbar'>
         <h3>Movie TMDB</h3>
-        <SearchBox
-            search={searchValue}
-            setSearch={setSearchValue}
-          />
+          <SearchBox
+          search={search}
+          setSearch={setSearch}
+        />;
       </nav>
       <div data-testid="fetch" className='container'>
-        <MovieList movies={data}/>
+        <MovieList movies={movies}/>
       </div>
     </>
   );

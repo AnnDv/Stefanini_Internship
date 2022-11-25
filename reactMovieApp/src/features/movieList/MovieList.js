@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './MovieList.css';
-import MovieCard from './MovieCard';
+import MovieCard from '../movieCard/MovieCard';
 
 function MovieList({ movies }) {
   return (
