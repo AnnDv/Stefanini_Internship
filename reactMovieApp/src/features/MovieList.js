@@ -6,7 +6,7 @@ import MovieCard from './MovieCard';
 function MovieList({ movies }) {
   return (
     <div data-testid="list" className='grid'>
-      {movies?.map((movie) => (
+      {movies?.results?.map((movie) => (
         <div key={movie.id} data-testid={`m-${movie.id}`} className="card_description">
           <MovieCard movie={movie}/>
         </div>
@@ -16,7 +16,7 @@ function MovieList({ movies }) {
 }
 
 MovieList.propTypes = {
-  movies: PropTypes.array,
+  movies: PropTypes.object,
 };
 
 export default MovieList;

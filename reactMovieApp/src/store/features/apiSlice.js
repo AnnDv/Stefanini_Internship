@@ -3,7 +3,6 @@ import getData from '../../api/getData';
 import CONFIG from '../../config';
 
 const API_URL = CONFIG.BASE_URL + CONFIG.POPULAR_MOVIE_URL + CONFIG.API_KEY;
-// const SEARCH_URL = CONFIG.BASE_URL + CONFIG.SEARCH_URL + CONFIG.API_KEY + CONFIG.QUERY;
 
 export const fetchMovies = createAsyncThunk('movie/fetchMovies', async () => getData(API_URL));
 
