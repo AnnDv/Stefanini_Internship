@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import MovieImage from '../movieComponents/MovieImage';
-import MovieTitle from '../movieComponents/MovieTitle';
-import ShowInfoButton from '../../components/infoButton/ShowInfoButton';
+import MovieImage from '../movieComponents/MovieImage.jsx';
+import MovieTitle from '../movieComponents/MovieTitle.jsx';
+import ShowInfoButton from '../../components/infoButton/ShowInfoButton.jsx';
 
 const MovieCard = ({ movie }) => (
   <div>

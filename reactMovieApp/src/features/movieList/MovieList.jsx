@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './MovieList.css';
-import MovieCard from '../movieCard/MovieCard';
+import MovieCard from '../movieCard/MovieCard.jsx';
 
 function MovieList({ movies }) {
   return (
@@ -16,7 +16,7 @@ function MovieList({ movies }) {
 }
 
 MovieList.propTypes = {
-  movies: PropTypes.object,
+  movies: PropTypes.array,
 };
 
 export default MovieList;

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import MovieList from './movieList/MovieList';
-import SearchBox from './search/SearchMovie';
+import MovieList from './movieList/MovieList.jsx';
+import SearchBox from './search/SearchMovie.jsx';
 import { useGetPopularMoviesQuery, useLazyGetSearchMovieQuery } from '../store/sliceApi';
+import Debouncer from '../components/Debounce/Debouncer';
 
 const FetchMovies = () => {
   const { data: movie } = useGetPopularMoviesQuery();
@@ -9,14 +10,16 @@ const FetchMovies = () => {
   const [search, setSearch] = useState('');
   const [execute, { data: list }] = useLazyGetSearchMovieQuery();
 
+  const debouncedSearchTerm = Debouncer(search, 500);
+
   useEffect(() => {
-    if (!search.length) {
+    if (!debouncedSearchTerm.length) {
       setMovies(movie);
     } else if (search.length >= 3) {
-      execute(search);
+      execute(debouncedSearchTerm);
       setMovies(list);
     }
-  }, [execute, search, list, setMovies, movie]);
+  }, [execute, search, list, setMovies, movie, debouncedSearchTerm]);
 
   return (
     <>
