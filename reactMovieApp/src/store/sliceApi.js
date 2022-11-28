@@ -1,20 +1,16 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import CONFIG from '../config';
-
-const popular = CONFIG.POPULAR_MOVIE_URL + CONFIG.API_KEY;
-const base = CONFIG.BASE_URL;
-const search = CONFIG.SEARCH_URL + CONFIG.API_KEY;
+import { POPULAR, BASE_URL, SEARCH_URL } from '../utils';
 
 export const movieApi = createApi({
   reducerPath: 'movieApi',
-  baseQuery: fetchBaseQuery({ baseUrl: base }),
+  baseQuery: fetchBaseQuery({ baseUrl: BASE_URL }),
   endpoints: (builder) => ({
     getPopularMovies: builder.query({
-      query: () => popular,
+      query: () => POPULAR,
     }),
     getSearchMovie: builder.query({
       query: (query) => ({
-        url: search,
+        url: SEARCH_URL,
         params: { query },
       }),
     }),
