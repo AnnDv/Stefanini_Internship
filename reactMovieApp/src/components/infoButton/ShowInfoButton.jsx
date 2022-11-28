@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import MovieDescription from '../../features/movieComponents/MovieDescription';
-import CustomModal from './CustomModal';
+import MovieDescription from '../../features/movieComponents/MovieDescription.jsx';
+import CustomModal from './CustomModal.jsx';
 import './ShowInfoButton.css';
 
 function ShowInfoButton({ overview }) {

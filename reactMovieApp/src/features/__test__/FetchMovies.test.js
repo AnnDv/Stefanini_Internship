@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import FetchMovies from '../FetchMovies';
+import FetchMovies from '../FetchMovies.jsx';
 import mockData from '../../api/getData';
 
 jest.mock('../../api/getData');
