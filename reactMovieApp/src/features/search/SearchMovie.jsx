@@ -5,11 +5,12 @@ import './SearchMovie.css';
 const SearchBox = ({ search, setSearch }) => (
   <div className='form'>
     <input
+      data-testid="search"
       className='search_form'
       type="search"
       placeholder="Type to search..."
       value={search}
-      onChange={(e) => setSearch(e.target.value)}
+      onChange={(e) => { setSearch(e.target.value); }}
     />
   </div>
 );
