@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import '@testing-library/jest-dom';
 import fetchMock from 'jest-fetch-mock';
 import FetchMovies from '../FetchMovies.jsx';
-import store from '../../store/store';
+import store from '../../../store/store';
 
 describe('FetchMovies', () => {
   beforeEach(() => {
@@ -22,6 +22,7 @@ describe('FetchMovies', () => {
       </Provider>,
     );
 
+    //add render with providers
     await waitFor(async () => {
       const movieColl = getByTestId('fetch').children[0];
       const movieCollLength = movieColl.childElementCount;

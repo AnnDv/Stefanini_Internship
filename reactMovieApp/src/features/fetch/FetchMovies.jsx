@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import MovieList from './movieList/MovieList.jsx';
-import SearchBox from './search/SearchMovie.jsx';
-import { useGetPopularMoviesQuery, useLazyGetSearchMovieQuery } from '../store/sliceApi';
-import Debouncer from '../components/Debounce/Debouncer';
+import MovieList from '../movieList/MovieList.jsx';
+import SearchBox from '../search/SearchMovie.jsx';
+import { useGetPopularMoviesQuery, useLazyGetSearchMovieQuery } from '../../store/sliceApi';
+import Debouncer from '../../components/Debounce/Debouncer';
 
 const FetchMovies = () => {
   const { data: movie } = useGetPopularMoviesQuery();
