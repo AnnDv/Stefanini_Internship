@@ -1,30 +1,39 @@
 import React from 'react';
-import { render, waitFor } from '@testing-library/react';
-import { Provider } from 'react-redux';
+import { waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import fetchMock from 'jest-fetch-mock';
 import FetchMovies from '../FetchMovies.jsx';
-import store from '../../../store/store';
+import moviesObject from '../__fixtures__/moviesObject';
 import renderWithProviders from '../../../common/customRender.jsx';
 
 describe('FetchMovies', () => {
-  beforeEach(() => {
-    fetchMock.resetMocks();
+  it('should render movies after the page was loaded', async () => {
+    fetchMock.mockResponseOnce(JSON.stringify(moviesObject));
+
+    const { getByTestId } = renderWithProviders(<FetchMovies/>);
+
+    await waitFor(() => {
+      expect(getByTestId('668461')).toBeInTheDocument();
+    });
   });
 
-  it('should add movie data', async () => {
-    fetchMock.mockResolvedValue([{
-      title: 'Black', overview: 'text',
-    }]);
+  it('should not render movies after the page was loaded with bad (empty) response', async () => {
+    fetchMock.mockResponseOnce(JSON.stringify({}));
 
-    const { getByTestId, baseElement } = renderWithProviders(<FetchMovies/>);
+    const { getByTestId } = renderWithProviders(<FetchMovies/>);
 
-    // add render with providers
-    await waitFor(async () => {
-      const movieColl = getByTestId('fetch');
-      const movieCollLength = movieColl.childElementCount;
-      expect(movieCollLength).toBeGreaterThanOrEqual(1);
+    await waitFor(() => {
+      expect(() => getByTestId('668461')).toThrow();
     });
-    expect(baseElement).toMatchSnapshot();
+  });
+
+  it('should not render movies with incorrect id', async () => {
+    fetchMock.mockResponseOnce(JSON.stringify(moviesObject));
+
+    const { getByTestId } = renderWithProviders(<FetchMovies/>);
+
+    await waitFor(() => {
+      expect(() => getByTestId('66841')).toThrow();
+    });
   });
 });
