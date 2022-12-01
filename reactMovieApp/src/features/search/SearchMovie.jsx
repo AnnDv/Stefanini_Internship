@@ -3,31 +3,51 @@ import PropTypes from 'prop-types';
 import './SearchMovie.css';
 import { useForm } from 'react-hook-form';
 
-const SearchBox = ({ search, setSearch }) => {
-  const { register } = useForm();
-  const onChange = (search) => setSearch(search);
-  // const value = watch();
+const SearchBox = ({ setSearch }) => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isValid },
+  } = useForm({ reValidateMode: 'onSubmit' });
+
+  // const [request, setRequest] = useState('');
+
+  // const searchMovies = async (e) => {
+  //   e.preventDefault();
+  //   setSearch(request);
+  //   setRequest('');
+  // };
+
+  const onSubmit = async (data) => {
+    // data.preventDefault();
+    await setSearch(data);
+    // console.log(setSearch(data));
+    // reset();
+  };
+
   return (
-    <form onChange={onChange}>
-      <div className='form'>
+    <form onSubmit={ handleSubmit(onSubmit) } className='form'>
+      <div>
+      <label className="label">Search Movie</label>
         <input
-          { ...register('search') }
+          {...register('search')}
           data-testid="search"
           className='search_form'
-          type="search"
+          type="text"
+          // name='search'
           placeholder="Type to search..."
-          // value={search}
-          // onChange={(e) => {
-          //   setSearch(e.target.value);
-          // }}
+          // value={request}
+          // onChange={(e) => { onSubmit(e.target.value); }}
         />
+        {errors?.search && <h6>{errors?.search.message || 'Error'}</h6>}
+        <button className="button" type="submit" disabled={!isValid}>Search</button>
       </div>
   </form>
   );
 };
 
 SearchBox.propTypes = {
-  search: PropTypes.string,
+  search: PropTypes.object,
   setSearch: PropTypes.func,
 };
 

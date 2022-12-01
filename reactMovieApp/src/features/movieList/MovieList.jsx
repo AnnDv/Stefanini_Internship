@@ -16,7 +16,10 @@ function MovieList({ movies }) {
 }
 
 MovieList.propTypes = {
-  movies: PropTypes.array,
+  movies: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.object,
+  ]),
 };
 
 export default MovieList;

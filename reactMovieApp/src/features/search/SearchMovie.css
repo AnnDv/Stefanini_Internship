@@ -1,5 +1,8 @@
 .form {
     padding: 10px 20px 10px 0;
+    display: flex;
+    flex-direction: row;
+    position: relative;
 }
 
 .search_form {

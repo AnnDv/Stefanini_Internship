@@ -5,6 +5,7 @@ import '@testing-library/jest-dom';
 import fetchMock from 'jest-fetch-mock';
 import FetchMovies from '../FetchMovies.jsx';
 import store from '../../../store/store';
+import renderWithProviders from '../../../common/customRender.jsx';
 
 describe('FetchMovies', () => {
   beforeEach(() => {
@@ -16,15 +17,11 @@ describe('FetchMovies', () => {
       title: 'Black', overview: 'text',
     }]);
 
-    const { getByTestId, baseElement } = render(
-      <Provider store={store}>
-        <FetchMovies/>
-      </Provider>,
-    );
+    const { getByTestId, baseElement } = renderWithProviders(<FetchMovies/>);
 
-    //add render with providers
+    // add render with providers
     await waitFor(async () => {
-      const movieColl = getByTestId('fetch').children[0];
+      const movieColl = getByTestId('fetch');
       const movieCollLength = movieColl.childElementCount;
       expect(movieCollLength).toBeGreaterThanOrEqual(1);
     });
