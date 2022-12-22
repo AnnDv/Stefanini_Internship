@@ -4,5 +4,9 @@
 }
 
 .navbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-items: center;
+    width: 95%;
     font-size: 20px;
 }

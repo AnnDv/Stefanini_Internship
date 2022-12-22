@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { POPULAR, BASE_URL, SEARCH_URL } from '../utils';
+import { POPULAR, BASE_URL, SEARCH_URL } from '../common/utils';
 
 export const movieApi = createApi({
   reducerPath: 'movieApi',

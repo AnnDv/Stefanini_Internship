@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import MovieImage from '../MovieImage';
+import MovieImage from '../MovieImage.jsx';
 import '@testing-library/jest-dom';
 import CONFIG from '../../../config';
 

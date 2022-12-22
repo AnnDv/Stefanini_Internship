@@ -1,29 +1,54 @@
 import React from 'react';
-import fetchMock from 'jest-fetch-mock';
-import { Provider } from 'react-redux';
-import { fireEvent, render } from '@testing-library/react';
+import {
+  fireEvent, waitFor, screen, render,
+} from '@testing-library/react';
+import { act } from 'react-test-renderer';
 import SearchBox from '../SearchMovie.jsx';
-import store from '../../../store/store';
 
 describe('SearchBox', () => {
-  beforeEach(() => {
-    fetchMock.resetMocks();
-  });
   const correctInput = 'star';
 
   it('should find a movie', () => {
     const mockOnChange = jest.fn();
-    const { getByTestId, baseElement } = render(
-        <Provider store={store}>
-          <SearchBox setSearch={mockOnChange}/>
-        </Provider>,
-    );
+    act(() => {
+      render(<SearchBox setSearch={mockOnChange}/>);
+    });
 
-    const input = getByTestId('search');
+    const input = screen.getByTestId('search');
+    const btn = screen.getByTestId('btn');
 
-    fireEvent.change(input, { target: { value: 'star' } });
+    act(() => {
+      fireEvent.change(input, { target: { value: correctInput } });
+    });
+    act(() => {
+      fireEvent.click(btn);
+    });
 
-    expect(mockOnChange).toBeCalledWith(correctInput);
-    expect(baseElement).toMatchSnapshot();
+    waitFor(() => {
+      expect(mockOnChange).toBeCalledWith(correctInput);
+    });
+  });
+
+  it('should not work with empty', () => {
+    const mockOnChange = jest.fn();
+    act(() => {
+      render(<SearchBox setSearch={mockOnChange}/>);
+    });
+
+    const input = screen.getByTestId('search');
+    const btn = screen.getByTestId('btn');
+
+    act(() => {
+      fireEvent.change(input, { target: { value: '' } });
+    });
+    screen.debug();
+    act(() => {
+      fireEvent.click(btn);
+    });
+
+    waitFor(() => {
+      expect(mockOnChange).toHaveBeenCalledTimes(0);
+      expect(screen.getByTestId('error')).toBeInTheDocument();
+    });
   });
 });
